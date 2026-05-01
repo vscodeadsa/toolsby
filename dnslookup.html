@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNS Lookup Results</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .error { color: red; }
+        .record-list { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <a href="/">Back to tools</a>
+    
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <h2>DNS Records for {{ domain }}</h2>
+        
+        <h3>A Records</h3>
+        {% if a_records %}
+            <ul class="record-list">
+                {% for record in a_records %}
+                <li>{{ record }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No A records found</p>
+        {% endif %}
+        
+        <h3>MX Records</h3>
+        {% if mx_records %}
+            <ul class="record-list">
+                {% for pref, exchange in mx_records %}
+                <li>{{ pref }} {{ exchange }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No MX records found</p>
+        {% endif %}
+        
+        <h3>TXT Records</h3>
+        {% if txt_records %}
+            <ul class="record-list">
+                {% for record in txt_records %}
+                <li>{{ record }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No TXT records found</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
