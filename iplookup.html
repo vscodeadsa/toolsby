@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Lookup Results</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .error { color: red; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <a href="/">Back to tools</a>
+    
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <h2>Results for {{ result.query }}</h2>
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>Country</td><td>{{ result.country }}</td></tr>
+            <tr><td>Region</td><td>{{ result.regionName }}</td></tr>
+            <tr><td>City</td><td>{{ result.city }}</td></tr>
+            <tr><td>ISP</td><td>{{ result.isp }}</td></tr>
+            <tr><td>Organization</td><td>{{ result.org }}</td></tr>
+            <tr><td>AS</td><td>{{ result.as }}</td></tr>
+        </table>
+    {% endif %}
+</body>
+</html>
