@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Tools</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .tool { margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; }
+        input[type=text] { width: 300px; }
+        button { background-color: #007bff; color: white; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Security Tools Suite</h1>
+    
+    <div class="tool">
+        <h3>IP Address Lookup</h3>
+        <form action="/tools/iplookup" method="GET">
+            <input type="text" name="ip" placeholder="Enter IP address">
+            <button type="submit">Lookup</button>
+        </form>
+    </div>
+    
+    <div class="tool">
+        <h3>Port Scanner</h3>
+        <form action="/tools/portscan" method="GET">
+            <input type="text" name="target" placeholder="Hostname or IP">
+            <input type="text" name="ports" value="1-1024">
+            <button type="submit">Scan</button>
+        </form>
+    </div>
+    
+    <div class="tool">
+        <h3>DNS Lookup</h3>
+        <form action="/tools/dnslookup" method="GET">
+            <input type="text" name="domain" placeholder="Enter domain">
+            <button type="submit">Lookup</button>
+        </form>
+    </div>
+</body>
+</html>
